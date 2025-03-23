@@ -1,3 +1,4 @@
+import ClerkProvider from '@/components/providers/clerk-provider'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Montserrat, Space_Grotesk } from 'next/font/google'
@@ -35,7 +36,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					{children}
+					<ClerkProvider>{children}</ClerkProvider>
 				</ThemeProvider>
 			</body>
 		</html>
