@@ -53,31 +53,34 @@ export async function POST(req: Request) {
 	const { id } = evt.data
 	const eventType = evt.type
 
-	if (eventType === 'user.created')
+	if (eventType === 'user.created') {
 		await db.user.create({
 			data: {
 				clerkId: evt.data.id,
-				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
 				username: evt.data.username!,
 				avatar: evt.data.image_url,
-				bio: 'Bio is not included in the webhook payload',
+				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
+				bio: 'Bio is nor provided !!!',
 			},
 		})
+	}
 
-	if (eventType === 'user.updated')
+	if (eventType === 'user.updated') {
 		await db.user.update({
-			where: { clerkId: id },
+			where: { clerkId: evt.data.id },
 			data: {
-				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
-				avatar: evt.data.image_url,
 				username: evt.data.username!,
+				avatar: evt.data.image_url,
+				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
 			},
 		})
+	}
 
-	if (eventType === 'user.deleted')
+	if (eventType === 'user.deleted') {
 		await db.user.delete({
-			where: { clerkId: id },
+			where: { clerkId: evt.data.id },
 		})
+	}
 
 	return new Response('Webhook received', { status: 200 })
 }
