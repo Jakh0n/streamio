@@ -11,7 +11,7 @@ import Link from 'next/link'
 const Recommended = () => {
 	return (
 		<SidebarGroup>
-			<SidebarGroupLabel>Followed by</SidebarGroupLabel>
+			<SidebarGroupLabel>Recommendations</SidebarGroupLabel>
 			<SidebarMenu>
 				{following_items.map(item => (
 					<SidebarMenuItem key={item.label}>
@@ -27,7 +27,9 @@ const Recommended = () => {
 								<div className='flex flex-col '>
 									<p className='text-sm font-medium'>{item.label}</p>
 									<p className='text-xs text-muted-foreground'>
-										{item.followedBy} follower {item.followedBy !== 1 && 's'}
+										{`${item.followedBy} follower${
+											item.followedBy !== 1 ? 's' : ''
+										}`}
 									</p>
 								</div>
 							</Link>

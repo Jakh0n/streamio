@@ -27,7 +27,10 @@ const Following = () => {
 								<div className='flex flex-col '>
 									<p className='text-sm font-medium'>{item.label}</p>
 									<p className='text-xs text-muted-foreground'>
-										{item.followedBy} follower {item.followedBy !== 1 && 's'}
+										{/* {item.followedBy} follower {item.followedBy !== 1 && 's'} */}
+										{`${item.followedBy} follower${
+											item.followedBy !== 1 ? 's' : ''
+										}`}
 									</p>
 								</div>
 							</Link>
