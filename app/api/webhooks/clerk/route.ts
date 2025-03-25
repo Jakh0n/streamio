@@ -1,3 +1,4 @@
+import { db } from '@/lib/db'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { headers } from 'next/headers'
 import { Webhook } from 'svix'
@@ -51,8 +52,32 @@ export async function POST(req: Request) {
 	// For this guide, log payload to console
 	const { id } = evt.data
 	const eventType = evt.type
-	console.log(`Received webhook with ID ${id} and event type of ${eventType}`)
-	console.log('Webhook payload:', body)
+
+	if (eventType === 'user.created')
+		await db.user.create({
+			data: {
+				clerkId: evt.data.id,
+				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
+				username: evt.data.username!,
+				avatar: evt.data.image_url,
+				bio: 'Bio is not included in the webhook payload',
+			},
+		})
+
+	if (eventType === 'user.updated')
+		await db.user.update({
+			where: { clerkId: id },
+			data: {
+				fullName: `${evt.data.first_name} ${evt.data.last_name}`,
+				avatar: evt.data.image_url,
+				username: evt.data.username!,
+			},
+		})
+
+	if (eventType === 'user.deleted')
+		await db.user.delete({
+			where: { clerkId: id },
+		})
 
 	return new Response('Webhook received', { status: 200 })
 }
