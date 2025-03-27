@@ -1,4 +1,5 @@
 import { getRecommended } from '@/actions/user.action'
+import UserAvatar from '@/components/shared/user-avatar'
 import {
 	SidebarContent,
 	SidebarGroup,
@@ -8,7 +9,6 @@ import {
 	SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
-import Image from 'next/image'
 import Link from 'next/link'
 const Recommended = async () => {
 	const data = await getRecommended()
@@ -21,21 +21,17 @@ const Recommended = async () => {
 				{recommended.length > 0 ? (
 					recommended.map(item => (
 						<SidebarMenuItem key={item.label}>
-							<SidebarMenuButton asChild>
+							<SidebarMenuButton asChild size={'lg'}>
 								<Link href={`/u/${item.label}`}>
-									<Image
-										src={item.avatar}
-										alt={item.label}
-										width={32}
-										height={32}
-										className='rounded-full'
+									<UserAvatar
+										avatar={item.avatar}
+										username={item.label}
+										variant={'square'}
 									/>
-									<div className='flex flex-col '>
-										<p className='text-sm font-medium'>{item.label}</p>
+									<div className='flex flex-col'>
+										<p className='text-sm font-space_grotesk'>@{item.label}</p>
 										<p className='text-xs text-muted-foreground'>
-											{`${item.followedBy} follower${
-												item.followedBy !== 1 ? 's' : ''
-											}`}
+											{item.followedBy} follower{item.followedBy !== 1 && 's'}
 										</p>
 									</div>
 								</Link>

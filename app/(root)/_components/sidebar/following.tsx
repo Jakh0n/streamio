@@ -1,4 +1,5 @@
 import { getFollowing } from '@/actions/user.action'
+import UserAvatar from '@/components/shared/user-avatar'
 import {
 	SidebarContent,
 	SidebarGroup,
@@ -8,12 +9,12 @@ import {
 	SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { Skeleton } from '@/components/ui/skeleton'
-import Image from 'next/image'
 import Link from 'next/link'
+
 const Following = async () => {
 	const data = await getFollowing()
-
 	const following = data?.data?.following || []
+
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel>Followed by</SidebarGroupLabel>
@@ -21,22 +22,18 @@ const Following = async () => {
 				{following.length > 0 ? (
 					following.map(item => (
 						<SidebarMenuItem key={item.label}>
-							<SidebarMenuButton asChild>
+							<SidebarMenuButton asChild size={'lg'}>
 								<Link href={`/u/${item.label}`}>
-									<Image
-										src={item.avatar}
-										alt={item.label}
-										width={32}
-										height={32}
-										className='rounded-full'
+									<UserAvatar
+										avatar={item.avatar}
+										username={item.label}
+										variant={'square'}
 									/>
-									<div className='flex flex-col '>
-										<p className='text-sm font-medium'>{item.label}</p>
+
+									<div className='flex flex-col'>
+										<p className='text-sm font-space_grotesk'>@{item.label}</p>
 										<p className='text-xs text-muted-foreground'>
-											{/* {item.followedBy} follower {item.followedBy !== 1 && 's'} */}
-											{`${item.followedBy} follower${
-												item.followedBy !== 1 ? 's' : ''
-											}`}
+											{item.followedBy} follower{item.followedBy !== 1 && 's'}
 										</p>
 									</div>
 								</Link>
@@ -63,8 +60,8 @@ export const FollowingSkeleton = () => {
 					{Array.from({ length: 3 }).map((_, index) => (
 						<SidebarMenuItem key={index}>
 							<SidebarMenuButton asChild size={'lg'}>
-								<div className='flex items-center space-x-4'>
-									<Skeleton className='h-8 w-8' />
+								<div className='flex items-center space-x-4 '>
+									<Skeleton className='h-8 w-8 rounded-full' />
 									<div className='space-y-2'>
 										<Skeleton className='h-4 w-16' />
 										<Skeleton className='h-4 w-28' />
