@@ -7,7 +7,7 @@ export const navigation_items = [
 		icon: Home,
 	},
 	{ label: 'Lives', href: '/lives', icon: Layers2 },
-	{ label: 'Subscriptions', href: '/subscription', icon: TvMinimalPlay },
+	{ label: 'Subscriptions', href: '/subscriptions', icon: TvMinimalPlay },
 	{ label: 'Dashboard', href: '/dashboard', icon: Clapperboard },
 ]
 export const following_items = [

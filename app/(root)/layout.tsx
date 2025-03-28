@@ -9,7 +9,7 @@ const Layout = ({ children }: ChildProps) => {
 			<AppSidebar />
 			<main className='w-full h-full'>
 				<AppNavbar />
-				{children}
+				<div className='container mx-auto'>{children}</div>
 			</main>
 		</SidebarProvider>
 	)

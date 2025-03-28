@@ -7,6 +7,7 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 const Navigation = () => {
@@ -16,8 +17,14 @@ const Navigation = () => {
 			<SidebarGroupLabel>Navigation</SidebarGroupLabel>
 			<SidebarMenu>
 				{navigation_items.map(item => (
-					<SidebarMenuItem key={item.label}>
-						<SidebarMenuButton asChild isActive={pathname === item.href}>
+					<SidebarMenuItem
+						key={item.label}
+						className={cn(
+							'rounded-md hover:bg-primary-foreground',
+							pathname === item.href && 'bg-primary/40'
+						)}
+					>
+						<SidebarMenuButton asChild>
 							<Link href={item.href}>
 								<item.icon />
 								<div className='flex items-center gap-2'>
