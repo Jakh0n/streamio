@@ -23,13 +23,17 @@ export const getRecommended = actionClient.action(
 
 const data = [
 	{
-		label: 'John Doe',
+		id: '1',
+		label: 'Jakhon',
 		avatar: 'https://github.com/shadcn.png',
 		followedBy: 8,
+		fullName: 'Jakhon Yokubov',
 	},
 	{
-		label: 'Osman ALi',
+		id: '2',
+		label: 'Oman',
 		avatar: 'https://github.com/shadcn.png',
-		followedBy: 10,
+		followedBy: 23,
+		fullName: 'Oman',
 	},
 ]

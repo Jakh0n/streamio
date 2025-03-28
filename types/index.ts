@@ -5,6 +5,7 @@ export interface User {
 	label: string
 	avatar: string
 	followedBy: number
+	id: string
 }
 
 export interface FollowingResponse {
