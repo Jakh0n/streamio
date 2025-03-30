@@ -26,7 +26,7 @@ const Following = async () => {
 								<Link href={`/u/${item.label}`}>
 									<UserAvatar
 										avatar={item.avatar}
-										username={item.label}
+										label={item.label}
 										variant={'square'}
 									/>
 

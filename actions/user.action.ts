@@ -1,6 +1,7 @@
 'use server'
 
 import { actionClient } from '@/lib/safe-action'
+import { labelSchema } from '@/lib/validation'
 import { FollowingResponse, RecommendedResponse } from '@/types'
 
 export const getFollowing = actionClient.action(
@@ -20,6 +21,17 @@ export const getRecommended = actionClient.action(
 		}
 	}
 )
+export const getUserByUsername = actionClient
+	.schema(labelSchema)
+	.action(async ({ parsedInput }) => {
+		const { label } = parsedInput
+		const user = data.find(user => user.label === label)
+		return {
+			data: {
+				user,
+			},
+		}
+	})
 
 const data = [
 	{

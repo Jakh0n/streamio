@@ -23,7 +23,7 @@ const avatarVariants = cva('', {
 })
 
 interface UserAvatarProps extends VariantProps<typeof avatarVariants> {
-	username: string
+	label: string
 	avatar: string
 	isLive?: boolean
 	showBadge?: boolean
@@ -31,7 +31,7 @@ interface UserAvatarProps extends VariantProps<typeof avatarVariants> {
 
 const UserAvatar = ({
 	avatar,
-	username,
+	label,
 	size,
 	variant,
 	isLive,
@@ -47,8 +47,8 @@ const UserAvatar = ({
 			>
 				<AvatarImage src={avatar} />
 				<AvatarFallback className='uppercase'>
-					{username[0]}
-					{username[username.length - 1]}
+					{label[0]}
+					{label[label.length - 1]}
 				</AvatarFallback>
 			</Avatar>
 			{showBadge && isLive && (
