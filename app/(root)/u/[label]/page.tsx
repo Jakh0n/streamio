@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { currentUser } from '@clerk/nextjs/server'
 import Link from 'next/link'
 import SubscribeBtn from '../../_components/subscribe-btn'
+import UserContent from '../_components/user-content'
 
 interface UsernamePageProps {
 	params: Promise<{ label: string }>
@@ -85,6 +86,7 @@ const UserNamePage = async ({ params }: UsernamePageProps) => {
 					</div>
 				</div>
 			</div>
+			<UserContent />
 		</>
 	)
 }
