@@ -21,7 +21,15 @@ const UserNamePage = async ({ params }: UsernamePageProps) => {
 			</div>
 			<div className='w-full md:w-1/2'>
 				<div className='flex items-center gap-2'>
-					<UserAvatar avatar={user?.avatar} label={user?.label} size='lg' />
+					{user && (
+						<UserAvatar avatar={user.avatar} label={user.label} size={'lg'} />
+					)}
+					<div className='flex items-center space-x-2 flex-col'>
+						<h1 className='text-xl lg:text-2xl font-medium lg:font-bold'>
+							{user?.label}
+						</h1>
+						<p className='text-sm text-muted-foreground'>{user?.label}</p>
+					</div>
 				</div>
 			</div>
 		</>

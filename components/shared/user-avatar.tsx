@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { cva, VariantProps } from 'class-variance-authority'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Avatar, AvatarImage } from '../ui/avatar'
 
 const avatarVariants = cva('', {
 	variants: {
@@ -46,10 +46,9 @@ const UserAvatar = ({
 				)}
 			>
 				<AvatarImage src={avatar} />
-				<AvatarFallback className='uppercase'>
-					{label[0]}
+				{/* <AvatarFallback className='uppercase'>
 					{label[label.length - 1]}
-				</AvatarFallback>
+				</AvatarFallback> */}
 			</Avatar>
 			{showBadge && isLive && (
 				<div className='absolute -bottom-3 left-1/2 transform -translate-x-1/2'>
