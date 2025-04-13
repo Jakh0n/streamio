@@ -6,17 +6,10 @@ import Link from 'next/link'
 import SubscribeBtn from '../../_components/subscribe-btn'
 import UserContent from '../_components/user-content'
 
-interface UsernamePageProps {
-	params: Promise<{ label: string }>
-}
-
-const UserNamePage = async ({ params }: UsernamePageProps) => {
-	const { label } = await params
-	const response = await getUserByUsername({ label })
-	console.log('Response:', response)
+const UserNamePage = async () => {
+	const response = await getUserByUsername({ label: 'Jakhon' })
 	const user = response?.data?.data?.user
 	const self = await currentUser()
-	console.log('User:', user)
 
 	return (
 		<>

@@ -1,15 +1,28 @@
 'use server'
 
 import { actionClient } from '@/lib/safe-action'
+import { videoIdSchema } from '@/lib/validation'
 
 export const getHomeFeed = actionClient.action(async () => {
 	await new Promise(resolve => setTimeout(resolve, 1000))
 	return { feed: data }
 })
 
+export const getVideoById = actionClient
+	.schema(videoIdSchema)
+	.action(async ({ parsedInput }) => {
+		const { videoId } = parsedInput
+		const feed = data.find(item => item.id === videoId)
+		return {
+			data: {
+				feed,
+			},
+		}
+	})
+
 const data = [
 	{
-		id: '1',
+		id: '12',
 		thumbnail:
 			'https://img.olympics.com/images/image/private/t_16-9_640/f_auto/v1538355600/primary/owtwv8todbwx68perkjz',
 		createdAt: new Date('2025-02-01T12:00:00Z'),

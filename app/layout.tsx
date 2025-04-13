@@ -2,6 +2,7 @@ import ClerkProvider from '@/components/providers/clerk-provider'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Montserrat, Space_Grotesk } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -36,7 +37,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<ClerkProvider>{children}</ClerkProvider>
+					<ClerkProvider>
+						<NextTopLoader showSpinner={false} />
+						{children}
+					</ClerkProvider>
 				</ThemeProvider>
 			</body>
 		</html>

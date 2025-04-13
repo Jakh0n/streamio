@@ -2,7 +2,7 @@ import { getHomeFeed } from '@/actions/feed.action'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { formatDistanceToNow } from 'date-fns'
-import { Calendar } from 'lucide-react'
+import { Calendar, Eye } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -76,7 +76,9 @@ const UserContent = async () => {
 									</h2>
 
 									<div className='flex items-center gap-x-2 text-sm text-muted-foreground'>
-										<p>24 views</p>
+										<p className='flex items-center gap-x-1'>
+											<span>24</span> <Eye className='size-4' />
+										</p>
 										<div className='size-1 rounded-full bg-muted-foreground' />
 										<p>
 											{formatDistanceToNow(feed.createdAt, { addSuffix: true })}
