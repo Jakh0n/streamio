@@ -7,6 +7,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog'
+import { cn } from '@/lib/utils'
 import { DownloadIcon, Share2, ThumbsDown, ThumbsUp } from 'lucide-react'
 import {
 	EmailIcon,
@@ -21,24 +22,37 @@ import {
 	WhatsappShareButton,
 } from 'react-share'
 
-const UserAction = () => {
+interface UserActionProps {
+	reactions: 'LIKE' | 'DISLIKE' | null
+}
+
+const UserAction = ({ reactions }: UserActionProps) => {
 	return (
 		<div className='flex items-center gap-x-2'>
 			<div className='flex items-center'>
 				<Button
-					variant={'outline'}
+					variant={reactions === 'LIKE' ? 'secondary' : 'outline'}
 					size={'sm'}
-					className='rounded-full  rounded-r-none'
+					className={cn('rounded-full  rounded-r-none')}
 				>
-					<ThumbsUp className='size-4' />
-					<span className='text-sm'>Liked</span>
+					<ThumbsUp
+						className={cn('size-4', reactions === 'LIKE' && 'fill-foreground')}
+					/>
+					<span className='text-sm'>
+						{reactions === 'LIKE' ? 'Liked' : 'Like'}
+					</span>
 				</Button>
 				<Button
-					variant={'outline'}
+					variant={reactions === 'DISLIKE' ? 'secondary' : 'outline'}
 					size={'sm'}
-					className='rounded-full  rounded-l-none'
+					className={cn('rounded-full  rounded-l-none')}
 				>
-					<ThumbsDown className='size-4' />
+					<ThumbsDown
+						className={cn(
+							'size-4',
+							reactions === 'DISLIKE' && 'fill-foreground'
+						)}
+					/>
 				</Button>
 			</div>
 			<Dialog>

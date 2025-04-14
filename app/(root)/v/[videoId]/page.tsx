@@ -1,4 +1,7 @@
 import { getVideoById } from '@/actions/feed.action'
+import Comments from '../_components/comments'
+import Description from '../_components/description'
+import RecomendedVideo from '../_components/recomended-video'
 import UserAction from '../_components/user-action'
 import UserInformation from '../_components/user-information'
 
@@ -17,8 +20,13 @@ const VideoPage = async ({ params }: VideoIdParams) => {
 				<h1 className='text-2xl font-bold mt-2 line-clamp-2'>{video?.title}</h1>
 				<div className='flex items-center justify-between'>
 					<UserInformation />
-					<UserAction />
+					<UserAction reactions={'DISLIKE'} />
 				</div>
+				<Description />
+				<Comments />
+			</div>
+			<div className='col-span-1'>
+				<RecomendedVideo />
 			</div>
 		</div>
 	)
