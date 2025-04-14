@@ -5,6 +5,7 @@ import UserAvatar from '@/components/shared/user-avatar'
 import { Button } from '@/components/ui/button'
 import { BadgePlus } from 'lucide-react'
 import Link from 'next/link'
+import SubscribeBtn from '../../_components/subscribe-btn'
 
 const UserInformation = async () => {
 	const response = await getUserByUsername({ label: 'Jakhon' })
@@ -31,6 +32,7 @@ const UserInformation = async () => {
 					{user?.followedBy} Subscribers
 				</p>
 			</div>
+			<SubscribeBtn isFollowing />
 		</Link>
 	)
 }
