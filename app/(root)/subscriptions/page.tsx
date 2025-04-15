@@ -19,8 +19,8 @@ const SubscriptionPage = async () => {
 				{subscriptions?.map(subscription => (
 					<Link href={`/u/${subscription.label}`} key={subscription.id}>
 						<UserAvatar
-							username={subscription.label}
 							avatar={subscription.avatar}
+							label={subscription.label}
 							size='lg'
 						/>
 						<p className='text-sm font-medium text-center capitalize break-words line-clamp-1 mt-1 w-full'>
@@ -46,8 +46,8 @@ const SubscriptionPage = async () => {
 							<div className='flex items-center space-x-2 mt-2'>
 								<div className='w-10 h-10 rounded-full '>
 									<UserAvatar
-										username={feed.user.username}
 										avatar={feed.user.avatar}
+										label={feed.user.username}
 									/>
 								</div>
 								<div className='flex flex-col space-y-1'>

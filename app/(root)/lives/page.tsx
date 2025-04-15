@@ -12,8 +12,8 @@ const LivesPage = async () => {
 				<Link href={`/u/${live.label}`} key={live.label}>
 					<div className='w-full h-56 bg-secondary rounded-lg flex items-center flex-col justify-center '>
 						<UserAvatar
-							username={live.label}
 							avatar={live.avatar}
+							label={live.label}
 							size='lg'
 							showBadge
 							isLive={true}

@@ -24,7 +24,7 @@ const HomePage = async () => {
 						<div className='flex items-center space-x-2 mt-2'>
 							<div className='w-10 h-10 rounded-full '>
 								<UserAvatar
-									username={feed.user.username}
+									label={feed.user.username}
 									avatar={feed.user.avatar}
 								/>
 							</div>
