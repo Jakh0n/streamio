@@ -28,7 +28,7 @@ interface UserActionProps {
 
 const UserAction = ({ reactions }: UserActionProps) => {
 	return (
-		<div className='flex items-center gap-x-2'>
+		<div className='flex items-center gap-x-2 max-sm:mt-4'>
 			<div className='flex items-center'>
 				<Button
 					variant={reactions === 'LIKE' ? 'secondary' : 'outline'}

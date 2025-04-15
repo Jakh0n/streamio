@@ -7,8 +7,10 @@ const avatarVariants = cva('', {
 		size: {
 			default: 'size-8',
 			sm: 'size-6',
+			md: 'size-10',
 			lg: 'size-14',
 			xl: 'size-20',
+
 			'2xl': 'size-28',
 		},
 		variant: {
@@ -27,6 +29,7 @@ interface UserAvatarProps extends VariantProps<typeof avatarVariants> {
 	avatar: string
 	isLive?: boolean
 	showBadge?: boolean
+	className?: string
 }
 
 const UserAvatar = ({
@@ -36,9 +39,10 @@ const UserAvatar = ({
 	variant,
 	isLive,
 	showBadge,
+	className,
 }: UserAvatarProps) => {
 	return (
-		<div className={cn('relative')}>
+		<div className={cn('relative', className)}>
 			<Avatar
 				className={cn(
 					isLive && 'ring-2 ring-red-500 border border-primary',
