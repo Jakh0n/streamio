@@ -6,7 +6,9 @@ const LatestComments = () => {
 	return (
 		<>
 			<div className='p-4 border rounded-md'>
-				<h2 className='text-lg font-bold '>Latest Comments</h2>
+				<h2 className='text-2xl font-bold font-spaceGrotesk'>
+					Latest Comments
+				</h2>
 				<p className='text-sm text-muted-foreground'>
 					Here are the latest comments from your subscribers.
 				</p>

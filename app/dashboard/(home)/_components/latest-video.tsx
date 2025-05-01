@@ -10,7 +10,9 @@ import Image from 'next/image'
 const LatestVideo = () => {
 	return (
 		<div className='p-4 border rounded-md space-y-4'>
-			<h1 className='text-lg font-bold'>Latest Video Performance</h1>
+			<h1 className='text-2xl font-bold font-spaceGrotesk'>
+				Latest Video Performance
+			</h1>
 			<div className='rounded-lg h-44 relative overflow-hidden mt-2  '>
 				<div className='bg-gradient-to-t absolute inset-0 from-primary rounded-lg z-40'></div>
 				<Image

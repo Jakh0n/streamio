@@ -6,6 +6,9 @@ const PublishedVideos = () => {
 	return (
 		<>
 			<div className='p-4 border rounded-md space-y-4'>
+				<h2 className='text-2xl font-bold font-spaceGrotesk'>
+					Published Videos
+				</h2>
 				<div className='flex items-center gap-2'>
 					<Image
 						src='https://img.olympics.com/images/image/private/t_social_share_thumb/f_auto/primary/qjxgsf7pqdmyqzsptxju'

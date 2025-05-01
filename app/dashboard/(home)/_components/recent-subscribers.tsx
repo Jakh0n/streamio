@@ -4,7 +4,7 @@ const RecentSubscribers = () => {
 	return (
 		<>
 			<div className='p-4 border rounded-md space-y-4'>
-				<h2 className='text-lg font-bold font-spaceGrotesk'>
+				<h2 className='text-2xl font-bold font-spaceGrotesk'>
 					Recent Subscribers
 				</h2>
 				<div className='flex items-center gap-2'>
