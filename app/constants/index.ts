@@ -1,4 +1,14 @@
-import { Clapperboard, Home, Layers2, TvMinimalPlay } from 'lucide-react'
+import {
+	Airplay,
+	Clapperboard,
+	Home,
+	Layers2,
+	LayoutDashboard,
+	Settings,
+	TvMinimalPlay,
+	Users,
+	Video,
+} from 'lucide-react'
 
 export const navigation_items = [
 	{
@@ -21,4 +31,12 @@ export const following_items = [
 		avatar: 'https://github.com/shadcn.png',
 		followedBy: 10,
 	},
+]
+export const dashboard_navigation_items = [
+	{ title: 'Home', route: '/', icon: Home },
+	{ title: 'Dashboard', route: '/dashboard', icon: LayoutDashboard },
+	{ title: 'Videos', route: '/dashboard/videos', icon: Video },
+	{ title: 'Stream', route: '/dashboard/stream', icon: Airplay },
+	{ title: 'Settings', route: '/dashboard/settings', icon: Settings },
+	{ title: 'Community', route: '/dashboard/community', icon: Users },
 ]
